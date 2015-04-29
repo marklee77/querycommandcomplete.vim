@@ -79,7 +79,7 @@ call s:DefaultIfUnset('g:qcc_pattern', '^\(To\|Cc\|Bcc\|From\|Reply-To\):')
 function! s:MakeCompletionEntry(name, email, other)
     let entry = {}
     let name = a:name
-    if match(name, ',') > 0
+    if match(name, '[,<>]') > 0
         let name = '"' . a:name . '"'
     endif
     let entry.word = name . ' <' . a:email . '>'
